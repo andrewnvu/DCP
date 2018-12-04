@@ -1,4 +1,4 @@
-#How to remove the Kth last element from the list in constant space and in one pass
+#How to remove the Kth last element from a linked list in constant space and in one pass
 
 #initialize Node structure
 class Node:
@@ -35,7 +35,9 @@ def remove_k_fromLast(linkedList, k):
     #skips the value of second
     prev.next = second.next
 
-
+#initialized linked list 
 head = Node(1, Node(2, Node(3, Node(4, Node(5, Node(6))))))
 remove_k_fromLast(head, 3)
+
+#should print out [1,2,3,5,6]
 print(head)
