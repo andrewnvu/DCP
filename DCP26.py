@@ -1,14 +1,6 @@
-# This problem was asked by Google.
+#How to remove the Kth last element from the list in constant space and in one pass
 
-# Given a singly linked list and an integer k, remove the kth last element from the list. 
-# k is guaranteed to be smaller than the length of the list.
-
-# The list is very long, so making more than one pass is prohibitively expensive.
-
-# Do this in constant space and in one pass
-
-
-
+#initialize Node structure
 class Node:
     def __init__(self, val, next = None):
         self.val = val
@@ -24,23 +16,26 @@ class Node:
 
         return str(result)
 
-
-def remove(linkedList, k):
+#functions removes the k-th to last index
+def remove_k_fromLast(linkedList, k):
     first, second = linkedList, linkedList
     
+    #moves up the head of the list by k
     for i in range(k):
         first = first.next
 
     prev = None
 
+    #second will be in the position that we would want to remove
     while first:
         prev = second
         second = second.next
         first = first.next
-
+    
+    #skips the value of second
     prev.next = second.next
 
 
 head = Node(1, Node(2, Node(3, Node(4, Node(5, Node(6))))))
-remove(head, 3)
+remove_k_fromLast(head, 3)
 print(head)
